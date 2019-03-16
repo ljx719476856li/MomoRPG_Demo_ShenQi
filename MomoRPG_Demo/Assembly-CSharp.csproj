@@ -60,6 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\NPC\Effect\Effects_01\Prefebs\DestroyForTime.cs" />
+    <Compile Include="Assets\NPC\Effect\Effects_01\Prefebs\FollowTarget.cs" />
+    <Compile Include="Assets\NPC\Effect\Effects_02\AnimationSpeed.cs" />
+    <Compile Include="Assets\NPC\Effect\Effects_02\ScrollUV.cs" />
     <Compile Include="Assets\Scripts\Command\StartCommand.cs" />
     <Compile Include="Assets\Scripts\Command\UpdateCharacterStatus.cs" />
     <Compile Include="Assets\Scripts\Command\UpdateCommandEvent.cs" />
@@ -71,6 +75,19 @@
     <Compile Include="Assets\Scripts\Model\NPC.cs" />
     <Compile Include="Assets\Scripts\ShenQiContext.cs" />
     <Compile Include="Assets\Scripts\ShenQiContextView.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\Animation\AnimatorToCharacter.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\Character\AttackState.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\Character\CharacterTest.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\Character\IdleState.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\Character\StateTemplate.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\Character\WalkState.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\Dispatcher.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\FiniteStateMachine.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\FSEvent.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\FSState.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\FSM\IState.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\Player\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\Player\Tags.cs" />
     <Compile Include="Assets\Scripts\View\Character\CharacterMediator.cs" />
     <Compile Include="Assets\Scripts\View\Character\CharacterView.cs" />
     <Compile Include="Assets\Scripts\View\Enemy\EnemyMediator.cs" />
