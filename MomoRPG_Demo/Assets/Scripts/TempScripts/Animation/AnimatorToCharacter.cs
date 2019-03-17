@@ -13,14 +13,14 @@ public class AnimatorToCharacter : MonoBehaviour
     private const string m_attack2State = "Attack2";
     private const string m_attack3State = "Attack3";
     private int m_hitCount = 0;
-    private PlayerMove move;  //控制人物移动
+    private PlayerMove m_move;  //控制人物移动
 
-    public float smothing = 1.5f;
+    public float m_smothing = 1.5f;
 
 
     void Start()
     {
-        move = transform.GetComponent<PlayerMove>();
+        m_move = transform.GetComponent<PlayerMove>();
 
         m_animator = this.GetComponent<Animator>();
 
@@ -75,12 +75,12 @@ public class AnimatorToCharacter : MonoBehaviour
     void LateUpdate()
     {
         //Debug.Log(move.state);
-        if (move.state == AnimationPlay.Idle)
+        if (m_move.m_state == AnimationPlay.Idle)
         {
             Idle();
             //PlayAnim("Idle");
         }
-        else if (move.state == AnimationPlay.Moving)
+        else if (m_move.m_state == AnimationPlay.Moving)
         {
             Move();
             //PlayAnim("Run");

@@ -6,18 +6,18 @@ public class FollowPlayer : MonoBehaviour
 {
     private GameObject m_player;
     private Vector3 m_offsetPos; //偏移值
-    private float distance = 0.0f;
+    private float m_distance = 0.0f;
     private bool m_isRotation = false;
 
     /// <summary>
     ///拉近拉远速度
     /// </summary>
-    public float scrollSpeed = 6.0f;
+    public float m_scrollSpeed = 6.0f;
 
     /// <summary>
     ///旋转速度
     /// </summary>
-    public float rotateSpeed = 3.5f;
+    public float m_rotateSpeed = 3.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +42,11 @@ public class FollowPlayer : MonoBehaviour
     private void ScrollView()
     {
         //print(Input.GetAxis("Mouse ScrollWheel"));
-        distance = m_offsetPos.magnitude;
-        distance -= Input.GetAxis("Mouse ScrollWheel") * scrollSpeed;
+        m_distance = m_offsetPos.magnitude;
+        m_distance -= Input.GetAxis("Mouse ScrollWheel") * m_scrollSpeed;
         //print("Distance: " + distance);
-        distance = Mathf.Clamp(distance, 2.0f, 18.0f);
-        m_offsetPos = m_offsetPos.normalized * distance; //更新偏移值
+        m_distance = Mathf.Clamp(m_distance, 2.0f, 18.0f);
+        m_offsetPos = m_offsetPos.normalized * m_distance; //更新偏移值
     }
 
     /// <summary>
@@ -67,12 +67,12 @@ public class FollowPlayer : MonoBehaviour
 
         if (m_isRotation)
         {
-            transform.RotateAround(m_player.transform.position, Vector3.up, Input.GetAxis("Mouse X") * rotateSpeed);//水平
+            transform.RotateAround(m_player.transform.position, Vector3.up, Input.GetAxis("Mouse X") * m_rotateSpeed);//水平
 
 
             Vector3 originalPos = transform.position;
             Quaternion originalRotate = transform.rotation;
-            transform.RotateAround(m_player.transform.position, transform.right, -(Input.GetAxis("Mouse Y") * rotateSpeed)); //垂直
+            transform.RotateAround(m_player.transform.position, transform.right, -(Input.GetAxis("Mouse Y") * m_rotateSpeed)); //垂直
 
             float x = transform.eulerAngles.x;
             //当垂直旋转度数超过80°或者小于10°时，无法再次增大或者减小即失效，只可在(80°-30°)之间

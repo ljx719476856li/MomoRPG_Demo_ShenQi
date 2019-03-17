@@ -13,7 +13,7 @@ public class PlayerDir : MonoBehaviour
     //目标位置
     private Vector3 m_targetPos;
     public Vector3 TargetPos { get { return m_targetPos; } }
-    public float smothing = 6.8f;
+    public float m_smothing = 6.8f;
 
     private PlayerMove m_playerMove; //控制人物移动的脚本对象  
 

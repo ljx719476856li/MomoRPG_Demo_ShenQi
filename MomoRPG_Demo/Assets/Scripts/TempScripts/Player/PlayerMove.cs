@@ -11,7 +11,7 @@ public enum AnimationPlay
 public class PlayerMove : MonoBehaviour
 {
     public float m_speed = 1.0f;
-    public AnimationPlay state = AnimationPlay.Idle;
+    public AnimationPlay m_state = AnimationPlay.Idle;
 
     private bool m_isMoving = false;
     public bool IsMoving { get { return m_isMoving; } }
@@ -33,14 +33,14 @@ public class PlayerMove : MonoBehaviour
 
         if (distance > 0.333f)
         {
-            state = AnimationPlay.Moving;
+            m_state = AnimationPlay.Moving;
             m_isMoving = true;
             m_controller.SimpleMove(transform.forward * m_speed);
         }
         else
         {
             distance = 0.0f;
-            state = AnimationPlay.Idle;
+            m_state = AnimationPlay.Idle;
             m_isMoving = false;
             //m_dir.LookAtTarget(m_dir.TargetPos);
         }
