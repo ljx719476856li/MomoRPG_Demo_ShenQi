@@ -22,13 +22,12 @@ public class AnimatorToCharacter : MonoBehaviour
     {
         m_move = transform.GetComponent<PlayerMove>();
 
-        m_animator = this.GetComponent<Animator>();
+        m_animator = this.GetComponent<Animator>(); 
 
         m_animator.SetBool("isMoving", false);
         m_animator.SetBool("isAttack", false);
         m_animator.SetBool("isAttackBack", false);
         m_animator.SetBool("isRunning", false);
-        m_animator.SetFloat("moveSpeed", 5.0f);
     }
 
     void Update()

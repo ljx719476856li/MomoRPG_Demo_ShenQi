@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\JSON\JSONObject.cs" />
+    <Compile Include="Assets\JSON\VectorTemplates.cs" />
     <Compile Include="Assets\NPC\Effect\Effects_01\Prefebs\DestroyForTime.cs" />
     <Compile Include="Assets\NPC\Effect\Effects_01\Prefebs\FollowTarget.cs" />
     <Compile Include="Assets\NPC\Effect\Effects_02\AnimationSpeed.cs" />
@@ -69,10 +71,11 @@
     <Compile Include="Assets\Scripts\Command\UpdateCommandEvent.cs" />
     <Compile Include="Assets\Scripts\Command\UpdateEnemyStatus.cs" />
     <Compile Include="Assets\Scripts\Command\UpdateNPCStatus.cs" />
-    <Compile Include="Assets\Scripts\Model\BaseModel.cs" />
-    <Compile Include="Assets\Scripts\Model\Character.cs" />
-    <Compile Include="Assets\Scripts\Model\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Model\NPC.cs" />
+    <Compile Include="Assets\Scripts\Mold\BaseModel.cs" />
+    <Compile Include="Assets\Scripts\Mold\Character.cs" />
+    <Compile Include="Assets\Scripts\Mold\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Mold\NPC.cs" />
+    <Compile Include="Assets\Scripts\Serivice\DataSerivice.cs" />
     <Compile Include="Assets\Scripts\ShenQiContext.cs" />
     <Compile Include="Assets\Scripts\ShenQiContextView.cs" />
     <Compile Include="Assets\Scripts\TempScripts\Animation\AnimatorToCharacter.cs" />
@@ -86,6 +89,7 @@
     <Compile Include="Assets\Scripts\TempScripts\FSM\FSEvent.cs" />
     <Compile Include="Assets\Scripts\TempScripts\FSM\FSState.cs" />
     <Compile Include="Assets\Scripts\TempScripts\FSM\IState.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\MyCharacterTest.cs" />
     <Compile Include="Assets\Scripts\TempScripts\Player\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\TempScripts\Player\PlayerDir.cs" />
     <Compile Include="Assets\Scripts\TempScripts\Player\PlayerMove.cs" />
@@ -281,6 +285,7 @@
     <Compile Include="Assets\StrangeIoC\scripts\strange\framework\impl\Binding.cs" />
     <Compile Include="Assets\StrangeIoC\scripts\strange\framework\impl\SemiBinding.cs" />
     <Compile Include="Assets\StrangeIoC\scripts\strange\ReadMe.cs" />
+    <None Include="Assets\JSON\readme.txt" />
     <None Include="Assets\StrangeIoC\examples\Assets\scripts\signalsproject\ReadMe.txt" />
     <None Include="Assets\StrangeIoC\scripts\strange\extensions\ReadMe.txt" />
     <None Include="Assets\StrangeIoC\examples\Assets\scripts\myfirstproject\ReadMe.txt" />
