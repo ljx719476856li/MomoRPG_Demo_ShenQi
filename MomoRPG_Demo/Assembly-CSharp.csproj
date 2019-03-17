@@ -87,6 +87,8 @@
     <Compile Include="Assets\Scripts\TempScripts\FSM\FSState.cs" />
     <Compile Include="Assets\Scripts\TempScripts\FSM\IState.cs" />
     <Compile Include="Assets\Scripts\TempScripts\Player\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\Player\PlayerDir.cs" />
+    <Compile Include="Assets\Scripts\TempScripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\TempScripts\Player\Tags.cs" />
     <Compile Include="Assets\Scripts\View\Character\CharacterMediator.cs" />
     <Compile Include="Assets\Scripts\View\Character\CharacterView.cs" />
