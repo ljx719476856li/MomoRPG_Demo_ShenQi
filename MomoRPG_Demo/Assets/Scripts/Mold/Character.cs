@@ -37,7 +37,7 @@ public class Character : BaseModel
     public int MagicDenfence { get;  set; } //法抗
 
     public Character() { }
-    public Character(int id, string name, int level,BaseModelType baseType, RaceType race, ProfessionType profession, GenderType gender, int hp, int hpRR,int mp, int mpRR,int exp, int levelExp, float ExpPR, int LevelUL,
+    public Character(int id, string name, int level,EBaseModelType baseType, ERaceType race, EProfessionType profession, GenderType gender, int hp, int hpRR,int mp, int mpRR,int exp, int levelExp, float ExpPR, int LevelUL,
         int intelligence, int strength, int agility, int stamina, int energy, float missRate, int missValue,int attack,float criRate,int criValue, int pDenfence, int mDenfence) : base(id, name, level, baseType, race, profession, gender)
     {
         this.HP = hp;

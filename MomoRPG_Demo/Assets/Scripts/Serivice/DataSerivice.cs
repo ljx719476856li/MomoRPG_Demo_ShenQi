@@ -52,9 +52,9 @@ public class DataSerivice : MonoBehaviour
             int id = (int)temp["ID"].n;
             string name = temp["Name"].str;
             int level = (int)temp["Level"].n;
-            BaseModelType baseType = (BaseModelType)System.Enum.Parse(typeof(BaseModelType), temp["BaseType"].str);//基础类型（玩家，敌人，npc）
-            RaceType race = (RaceType)System.Enum.Parse(typeof(RaceType), temp["Race"].str);
-            ProfessionType profession = (ProfessionType)System.Enum.Parse(typeof(ProfessionType), temp["Profession"].str);
+            EBaseModelType baseType = (EBaseModelType)System.Enum.Parse(typeof(EBaseModelType), temp["BaseType"].str);//基础类型（玩家，敌人，npc）
+            ERaceType race = (ERaceType)System.Enum.Parse(typeof(ERaceType), temp["Race"].str);
+            EProfessionType profession = (EProfessionType)System.Enum.Parse(typeof(EProfessionType), temp["Profession"].str);
             GenderType gender = (GenderType)System.Enum.Parse(typeof(GenderType), temp["Gender"].str);
 
             BaseModel baseModel = null;
@@ -62,7 +62,7 @@ public class DataSerivice : MonoBehaviour
             switch (baseType)
             {
               
-                case BaseModelType.Character:
+                case EBaseModelType.eCharacter:
                     int hp = (int)temp["HP"].n;
                     int hpRecoverRate = (int)temp["HpRecoverRate"].n;
                     int mp = (int)temp["MP"].n;
@@ -87,9 +87,9 @@ public class DataSerivice : MonoBehaviour
                     baseModel = new Character(id, name, level, baseType, race, profession, gender, hp, hpRecoverRate, mp, mpRecoverRate, exp, levelExp, expPercentRate, levelUpperLimit,
                         intelligence, strength, agility, stamina, energy, missRate, missValue, attackDamage, criRate, criValue, physicDenfence, magicDenfence);
                     break;
-                case BaseModelType.NPC:
+                case EBaseModelType.eNPC:
                     break;
-                case BaseModelType.Enemy:
+                case EBaseModelType.eEnemy:
                     break;
                 default:
                     break;

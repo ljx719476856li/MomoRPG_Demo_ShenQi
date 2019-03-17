@@ -74,7 +74,7 @@ public class MyCharacterTest : MonoBehaviour
     {
         switch (character.Profession)
         {
-            case ProfessionType.Archer:
+            case EProfessionType.eArcher:
                 character.HP = (int)(character.Energy * 3.2);
                 character.PhysicDenfence = (int)(character.Strength * 2 + character.Stamina * 1.6);
                 character.MagicDenfence = (int)(character.Intelligence * 2);
@@ -84,7 +84,7 @@ public class MyCharacterTest : MonoBehaviour
                 //character.MissRate 
                 //character.CritRate
                 break;
-            case ProfessionType.Mage:
+            case EProfessionType.eMage:
                 character.HP = (int)(character.Energy * 4.2);
                 character.PhysicDenfence = (int)(character.Strength * 1.9 + character.Stamina * 2.2);
                 character.MagicDenfence = (int)(character.Intelligence * 2.2);
@@ -92,7 +92,7 @@ public class MyCharacterTest : MonoBehaviour
                 character.MissValue = (int)(character.Agility * 0.66);
                 character.CriValue = (int)(character.Intelligence * 0.55);
                 break;
-            case ProfessionType.Warrior:
+            case EProfessionType.eWarrior:
                 character.HP = (int)(character.Energy * 5);
                 character.PhysicDenfence = (int)(character.Stamina * 2.2);
                 character.MagicDenfence = (int)(character.Agility * 1.9);

@@ -7,32 +7,32 @@ using UnityEngine;
 /// 基础模型类
 /// </summary>
 /// 
-public enum BaseModelType
+public enum EBaseModelType
 {
-    Character,
-    NPC,
-    Enemy
+    eCharacter,
+    eNPC,
+    eEnemy
 }
 
-public enum RaceType
+public enum ERaceType
 {
-    Human,
-    Animal,
-    Demon//恶魔族
+    eHuman,
+    eAnimal,
+    eDemon//恶魔族
 }
 
-public enum ProfessionType
+public enum EProfessionType
 {
-    Archer,//弓箭手(敌人远程)
-    Mage,//魔法师
-    Warrior//战士（敌人近战）
+    eArcher,//弓箭手(敌人远程)
+    eMage,//魔法师
+    eWarrior//战士（敌人近战）
 
 }
 public enum GenderType
 {
-    Male,
-    Female,
-    None//无性别
+    eMale,
+    eFemale,
+    eNone//无性别
 }
 
 
@@ -42,13 +42,13 @@ public class BaseModel
     public string Name { get;  set; }
     public int Level { get;  set; }
     //public string Sprite { get; private set; }
-    public BaseModelType BaseType { get;  set; }
-    public RaceType Race { get;  set; }
-    public ProfessionType Profession { get;  set; }
+    public EBaseModelType BaseType { get;  set; }
+    public ERaceType Race { get;  set; }
+    public EProfessionType Profession { get;  set; }
     public GenderType Gender { get;  set; }
 
     public BaseModel() { }
-    public BaseModel(int id, string name, int level, BaseModelType baseType, RaceType race, ProfessionType profession, GenderType gender)
+    public BaseModel(int id, string name, int level, EBaseModelType baseType,ERaceType race, EProfessionType profession, GenderType gender)
     {
         this.ID = id;
         this.Name = name;
