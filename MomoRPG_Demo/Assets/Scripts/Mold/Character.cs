@@ -37,7 +37,7 @@ public class Character : BaseModel
     public int MagicDenfence { get;  set; } //法抗
 
     public Character() { }
-    public Character(int id, string name, int level,EBaseModelType baseType, ERaceType race, EProfessionType profession, GenderType gender, int hp, int hpRR,int mp, int mpRR,int exp, int levelExp, float ExpPR, int LevelUL,
+    public Character(int id, EModelName name, int level,EBaseModelType baseType, ERaceType race, EProfessionType profession, EGenderType gender, int hp, int hpRR,int mp, int mpRR,int exp, int levelExp, float ExpPR, int LevelUL,
         int intelligence, int strength, int agility, int stamina, int energy, float missRate, int missValue,int attack,float criRate,int criValue, int pDenfence, int mDenfence) : base(id, name, level, baseType, race, profession, gender)
     {
         this.HP = hp;
@@ -60,5 +60,10 @@ public class Character : BaseModel
         this.CriValue = criValue;
         this.MissValue = missValue;
         this.CritRate = criRate;
+    }
+
+    public override string GetModelName()
+    {
+        return base.GetModelName();
     }
 }

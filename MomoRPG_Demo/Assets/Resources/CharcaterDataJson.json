@@ -1,7 +1,7 @@
 [
   {
     "ID": 0,
-    "Name": "wuniang",
+    "ModelName": "eWuNiang",
     "Level": 1,
     "BaseType": "eCharacter",
     "Race": "eHuman",
@@ -30,7 +30,7 @@
   },
   {
     "ID": 1,
-    "Name": "huli",
+    "ModelName": "eHuli",
     "Level": 1,
     "BaseType": "eCharacter",
     "Race": "eAnimal",
@@ -59,7 +59,7 @@
   },
   {
     "ID": 1,
-    "Name": "yangjian",
+    "ModelName": "eYangJian",
     "Level": 1,
     "BaseType": "eCharacter",
     "Race": "eHuman",

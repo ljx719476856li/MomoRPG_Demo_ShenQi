@@ -1,67 +1,53 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
-/// 解析各模型数据（玩家，npc，敌人）的Json
+/// 解析角色Json文件,并将角色数据存入List<BaseModel> CharacterModelList
 /// </summary>
 
-public class DataSerivice : MonoBehaviour
+public class ParseCharacterJson : MonoBehaviour
 {
-    private static DataSerivice _instance;
-    public static DataSerivice Instance
-    {
-        get
-        {
-            if(_instance == null)
-            {
-                _instance = GameObject.Find("YangJian_03").GetComponent<DataSerivice>();
-            }
-            return _instance;
-        }           
-    }
+    [Inject]
+    public IRequestDataFromWeb requestDataFromWeb { get; set; }
 
-    private List<BaseModel> modelDataList;//存放模型数据的List
-    public List<BaseModel> ModelDataList
+    private List<BaseModel> characterModelList;
+    public List<BaseModel> CharacterModelList
     {
         get
         {
-            return modelDataList;
+            if (characterModelList == null)
+                characterModelList = new List<BaseModel>();
+            return characterModelList;
         }
     }
 
-    private void Awake()
+    public ParseCharacterJson()
     {
-        ParseModelJson();
+        characterModelList = new List<BaseModel>();
     }
 
-    //解析Json
     public void ParseModelJson()
     {
-        modelDataList = new List<BaseModel>();
+        JSONObject j =  requestDataFromWeb.RequestCharacterData();
 
-        TextAsset modelText = Resources.Load<TextAsset>("ModelDataJson");
-        string characterJson = modelText.text;
-        JSONObject j = new JSONObject(characterJson);
-        //Debug.Log(j);
-
-        foreach(JSONObject temp in j.list)
+        foreach (JSONObject temp in j.list)
         {
             //公有属性
             int id = (int)temp["ID"].n;
-            string name = temp["Name"].str;
+            EModelName name = (EModelName)System.Enum.Parse(typeof(EModelName), temp["ModelName"].str);
             int level = (int)temp["Level"].n;
             EBaseModelType baseType = (EBaseModelType)System.Enum.Parse(typeof(EBaseModelType), temp["BaseType"].str);//基础类型（玩家，敌人，npc）
             ERaceType race = (ERaceType)System.Enum.Parse(typeof(ERaceType), temp["Race"].str);
             EProfessionType profession = (EProfessionType)System.Enum.Parse(typeof(EProfessionType), temp["Profession"].str);
-            GenderType gender = (GenderType)System.Enum.Parse(typeof(GenderType), temp["Gender"].str);
+            EGenderType gender = (EGenderType)System.Enum.Parse(typeof(EGenderType), temp["Gender"].str);
 
             BaseModel baseModel = null;
 
             switch (baseType)
             {
-              
+
                 case EBaseModelType.eCharacter:
                     int hp = (int)temp["HP"].n;
                     int hpRecoverRate = (int)temp["HpRecoverRate"].n;
@@ -94,10 +80,17 @@ public class DataSerivice : MonoBehaviour
                 default:
                     break;
             }
-            modelDataList.Add(baseModel);
-            //Debug.Log(baseModel);
+            characterModelList.Add(baseModel);
         }
     }
 
+    //获取角色列表里存放角色的类型
+    public void GetCharacterType()
+    {
+        foreach(BaseModel b in characterModelList)
+        {
+            
+        }
+    }
 
 }

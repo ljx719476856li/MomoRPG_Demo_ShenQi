@@ -14,22 +14,28 @@ public class ShenQiContext : MVCSContext
         //Manager
 
         //Model
-        injectionBinder.Bind<Character>().To<Character>().ToSingleton();  //ToSingleton() 表示这个对象只会在整个工程中生成一个
+        //injectionBinder.Bind<Character>().To<Character>().ToSingleton();  //ToSingleton() 表示这个对象只会在整个工程中生成一个
         injectionBinder.Bind<Enemy>().To<Enemy>().ToSingleton(); 
-        injectionBinder.Bind<NPC>().To<NPC>().ToSingleton(); 
+        injectionBinder.Bind<NPC>().To<NPC>().ToSingleton();
+        injectionBinder.Bind<ParseCharacterJson>().To<ParseCharacterJson>().ToSingleton();
 
 
         //Mediator 
-        mediationBinder.Bind<NPCView>().To<NPCMediator>(); //view层与mediator的绑定，用于隔离View层与Command层
-        mediationBinder.Bind<EnemyView>().To<EnemyMediator>(); //view层与mediator的绑定，用于隔离View层与Command层
+        
+        //mediationBinder.Bind<NPCView>().To<NPCMediator>(); //view层与mediator的绑定，用于隔离View层与Command层
+        //mediationBinder.Bind<EnemyView>().To<EnemyMediator>(); //view层与mediator的绑定，用于隔离View层与Command层
         mediationBinder.Bind<UIVIew>().To<UIMediator>(); //view层与mediator的绑定，用于隔离View层与Command层
         mediationBinder.Bind<CharacterView>().To<CharacterMediator>(); //view层与mediator的绑定，用于隔离View层与Command层
 
         //Command
-        commandBinder.Bind(UpdateCommandEvent.evtUpdateNPCStatus).To<UpdateNPCStatus>();
-        commandBinder.Bind(UpdateCommandEvent.evtUpdateEnemyStatus).To<UpdateEnemyStatus>();
-        commandBinder.Bind(UpdateCommandEvent.evtUpdateCharacterStatus).To<UpdateCharacterStatus>();//event与事件的绑定，绑定成功后执行Execute函数
+        commandBinder.Bind(CharacterStatusCommandEvent.UpdateCharacterStatus).To<UpdateCharacterStatusCommand>();
+        //commandBinder.Bind(CharacterStatusCommandEvent.CreateCharacter).To<UpdateCharacterStatusCommand>();
+        //commandBinder.Bind(UpdateCommandEvent.evtUpdateNPCStatus).To<UpdateNPCStatus>();
+        //commandBinder.Bind(UpdateCommandEvent.evtUpdateEnemyStatus).To<UpdateEnemyStatus>();
+        //commandBinder.Bind(UpdateCommandEvent.evtUpdateCharacterStatus).To<UpdateCharacterStatusCommand>();//event与事件的绑定，绑定成功后执行Execute函数
+
         //Service
+        injectionBinder.Bind<IRequestDataFromWeb>().To<RequestDataFromWeb>();
 
         //绑定开始事件
         commandBinder.Bind(ContextEvent.START).To<StartCommand>().Once(); //.Once()命令执行一次后删除

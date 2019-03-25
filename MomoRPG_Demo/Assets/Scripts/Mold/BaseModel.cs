@@ -28,30 +28,37 @@ public enum EProfessionType
     eWarrior//战士（敌人近战）
 
 }
-public enum GenderType
+public enum EGenderType
 {
     eMale,
     eFemale,
     eNone//无性别
 }
 
+public enum EModelName
+{
+    eWuNiang,
+    eYangJian,
+    eHuli
+}
+
 
 public class BaseModel
 {
     public int ID { get;  set; }
-    public string Name { get;  set; }
+    public EModelName ModelName { get;  set; }
     public int Level { get;  set; }
     //public string Sprite { get; private set; }
     public EBaseModelType BaseType { get;  set; }
     public ERaceType Race { get;  set; }
     public EProfessionType Profession { get;  set; }
-    public GenderType Gender { get;  set; }
+    public EGenderType Gender { get;  set; }
 
     public BaseModel() { }
-    public BaseModel(int id, string name, int level, EBaseModelType baseType,ERaceType race, EProfessionType profession, GenderType gender)
+    public BaseModel(int id, EModelName name, int level, EBaseModelType baseType,ERaceType race, EProfessionType profession, EGenderType gender)
     {
         this.ID = id;
-        this.Name = name;
+        this.ModelName = name;
         this.Level = level;
         //this.Sprite = sprite;
         this.BaseType = baseType;
@@ -59,5 +66,26 @@ public class BaseModel
         this.Profession = profession;
         this.Gender = gender;
 
+    }
+
+
+    public virtual string GetModelName()
+    {
+        string Name = "";
+        switch (ModelName)
+        {
+            case EModelName.eWuNiang:
+                Name = "舞娘";
+                break;
+            case EModelName.eYangJian:
+                Name = "杨戬";
+                break;
+            case EModelName.eHuli:
+                Name = "狐狸";
+                break;
+            default:
+                break;
+        }
+        return Name;
     }
 }

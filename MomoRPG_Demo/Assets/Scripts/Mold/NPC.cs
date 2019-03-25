@@ -22,7 +22,7 @@ public class NPC : BaseModel
     public ENPCType NpcType { get;  set; }
 
     public NPC() { }
-    public NPC(int id, string name, int level,EBaseModelType baseType, ERaceType race, EProfessionType profession, GenderType gender, ENPCType npcType) : base(id, name, level,baseType, race, profession, gender)
+    public NPC(int id, EModelName name, int level,EBaseModelType baseType, ERaceType race, EProfessionType profession, EGenderType gender, ENPCType npcType) : base(id, name, level,baseType, race, profession, gender)
     {
         this.NpcType = npcType;
 

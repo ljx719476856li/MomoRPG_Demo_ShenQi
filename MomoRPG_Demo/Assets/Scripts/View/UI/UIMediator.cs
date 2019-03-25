@@ -10,6 +10,7 @@ public class UIMediator : Mediator
     [Inject]
     public UIVIew uiVIew { get; set; }
 
+
     [Inject(ContextKeys.CONTEXT_DISPATCHER)] //注入为全局的分配器
     public IEventDispatcher dispatcher { get; set; } //分发器
 
@@ -18,6 +19,10 @@ public class UIMediator : Mediator
         uiVIew.Init();
     }
 
+    private void Update()
+    {
+        
+    }
 
     public override void OnRemove()
     {

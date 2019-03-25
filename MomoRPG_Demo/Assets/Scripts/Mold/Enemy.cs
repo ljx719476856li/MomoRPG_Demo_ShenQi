@@ -21,7 +21,7 @@ public class Enemy : BaseModel
     public int Damage { get;  set; }
 
     public Enemy() { }
-    public Enemy(int id, string name, int level,EBaseModelType baseType, ERaceType race, EProfessionType profession, GenderType gender, EEnemy enemyType, int expDrop, int hp, int damage) :
+    public Enemy(int id, EModelName name, int level,EBaseModelType baseType, ERaceType race, EProfessionType profession, EGenderType gender, EEnemy enemyType, int expDrop, int hp, int damage) :
         base(id, name, level, baseType, race, profession, gender)
     {
         this.EnemyType = enemyType;
